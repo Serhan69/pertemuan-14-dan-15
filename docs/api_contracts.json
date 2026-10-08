@@ -1,0 +1,33 @@
+{
+  "base_url_placeholder": "https://YOUR-API-BASE-URL/",
+  "endpoints": [
+    {
+      "path": "api/v1/courier/manifest/today",
+      "method": "GET",
+      "description": "Fetch today's delivery manifest for the authenticated courier.",
+      "response_200": [
+        {
+          "order_id": "ORD-2026-8801",
+          "tracking_number": "EXP-90021-JKT",
+          "recipient_name": "Ibu Ratna Dewi",
+          "recipient_phone": "081234567890",
+          "destination_address": "Jl. Melati Raya No. 45, Harjamukti, Cirebon",
+          "cod_amount": 125000.0,
+          "status": "PENDING"
+        }
+      ]
+    },
+    {
+      "path": "api/v1/courier/deliveries/{order_id}/status",
+      "method": "POST",
+      "query_parameters": {
+        "status": "DELIVERED"
+      },
+      "description": "Update delivery status on the central server.",
+      "response_200": {
+        "success": true,
+        "message": "Status pengiriman berhasil diperbarui ke server pusat."
+      }
+    }
+  ]
+}
